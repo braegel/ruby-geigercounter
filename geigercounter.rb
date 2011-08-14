@@ -1,4 +1,3 @@
-#!/home/x42/.rvm/rubies/ruby-1.9.2-p290/bin/ruby
 require 'serialport'
 require 'optparse'
 
@@ -67,13 +66,14 @@ Thread.new do
       if options[:mode].eql?('munin')
         response = ""
         row.each do |key,value|
-          if !key.eql?('time') && !key.eql?('epoch') && !key.eql?('uSv/hr')
-            response << "#{key}.value #{value}\n"
+          if key.eql?('uSv/hr')
+            response << "nSv_h.value #{value.to_f*1000}\n"
           end
         end
 
         # if valid : puts and quit
-        if response.gsub(/CPM.value \d+/)
+        if response.length>=17 && response.gsub(/uSv_h.value \d+/)
+          p response.length if options[:debug]
           puts response
           exit
         end
