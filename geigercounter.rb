@@ -1,3 +1,4 @@
+#!/usr/local/rvm/bin/ruby
 require 'serialport'
 require 'optparse'
 

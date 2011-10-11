@@ -13,4 +13,4 @@ exit 0;;
 esac
 
 #path to geigercouter.rb
-ruby /home/x42/git/ruby-geigercounter.git/geigercounter.rb -m munin
+/usr/local/rvm/bin/ruby /home/x42/ruby-geigercounter.git/geigercounter.rb -m munin -d /dev/ttyUSB0
