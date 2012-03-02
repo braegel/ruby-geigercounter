@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 case $1 in
    config)
@@ -13,4 +13,4 @@ exit 0;;
 esac
 
 #path to geigercouter.rb
-/usr/local/rvm/bin/ruby /home/x42/ruby-geigercounter.git/geigercounter.rb -m munin -d /dev/ttyUSB0
+head -2 /dev/ttyUSB0 | tail -1 | sed -re 's/.*CPM, (.+), uSv.*/nSv_h.value \1/g'
