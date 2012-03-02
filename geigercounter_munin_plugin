@@ -6,7 +6,7 @@ case $1 in
         cat << 'EOM'
 graph_title Geiger Counter
 graph_vlabel uSv_h
-nSv_h.label uSv_h
+uSv_h.label uSv_h
 EOM
 
 exit 0;;
